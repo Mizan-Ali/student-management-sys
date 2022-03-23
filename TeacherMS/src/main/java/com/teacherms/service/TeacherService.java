@@ -11,8 +11,10 @@ public interface TeacherService {
 	public void deleteTeacher(Integer teacherId) throws TeacherException;
 	
 	public TeacherDTO getTeacher(Integer teacherId) throws TeacherException;
+	
 
 	/* Left for implementation
+	getAllTeachers()
 	deleteTeacher(name)
 	updateTeacher(id) 
 	 */

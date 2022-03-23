@@ -22,15 +22,16 @@ public class TeacherServiceImpl implements TeacherService{
 	@Override
 	public Integer addTeacher(TeacherDTO teacherDTO) throws TeacherException {
 		// check if the record already exists
-		Optional<Teacher> teacherRecord = teacherRepository.findById(teacherDTO.getTeacherId());
+//		Optional<Teacher> teacherRecord = teacherRepository.findById(teacherDTO.getTeacherId());
+//		
+//		if(teacherRecord != null) 
+//			throw new TeacherException("Service.TEACHER_RECORD_ALREADY_EXISTS");
 		
-		if(teacherRecord != null) 
-			throw new TeacherException("Service.TEACHER_RECORD_ALREADY_EXISTS");
-		
-		TeacherDTO teacher = new TeacherDTO();
+		Teacher teacher = new Teacher();
 		teacher.setCourse(teacherDTO.getCourse());
 		teacher.setName(teacherDTO.getName());
 		teacher.setTeacherId(teacherDTO.getTeacherId());
+		teacherRepository.save(teacher);
 		
 		return teacher.getTeacherId();
 				
