@@ -1,0 +1,17 @@
+drop schema `teacher_db`;
+create schema `teacher_db`;
+use `teacher_db`;
+
+DROP TABLE IF EXISTS `teacher`;
+
+CREATE TABLE `teacher` (
+  `teacher_id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `course` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`teacher_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `teacher` VALUES(1, `Mike`, `COA`);
+INSERT INTO `teacher` VALUES(2, 'Ross', 'OS');
+INSERT INTO `teacher` VALUES(3, 'Harvey', 'DBMS');
+INSERT INTO `teacher` VALUES(4, 'Specter', 'DAA');
