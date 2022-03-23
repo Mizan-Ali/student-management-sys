@@ -2,6 +2,8 @@ package com.management.student.service;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import com.management.student.exception.StudentServiceException;
 import com.management.student.repository.StudentRepository;
 
 @Service
+@Transactional
 public class AdmissionService {
 
 	@Autowired
@@ -20,7 +23,8 @@ public class AdmissionService {
 		Student student = new Student();
 		student.setStudentName(studentDTO.getStudentName());
 		student.setTeacherId(studentDTO.getTeacherId());
-		return studentRepository.save(student).getStudentId();
+		studentRepository.save(student);
+		return student.getStudentId();
 	}
 	
 	public Integer deleteStudent(Integer studentId) throws StudentServiceException{
